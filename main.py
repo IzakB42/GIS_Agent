@@ -6,6 +6,12 @@ load_dotenv()
 from langchain.agents import create_agent
 from langchain.tools import tool
 
+# from pathlib import Path
+# from langchain.mcp import MCPAdapter
+
+# from fastmcp import FastMCP
+# mcp = FastMCP("Network Name")
+
 
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
@@ -24,6 +30,7 @@ agent = create_agent(
     tools=[get_weather],
     system_prompt="You are a helpful assistant",
 )
+
 def main():
 
     prompt = get_prompt()
@@ -33,3 +40,18 @@ def main():
     )
     
     print(result["messages"][-1].text)
+
+
+# from langchain.agents import create_agent
+# from langchain.mcp import MCPAdapter
+
+
+# async def main():
+#     async with MCPAdapter("https://example.com/mcp") as adapter:
+#         tools = await adapter.list_tools()
+#         agent = create_agent("claude-sonnet-5", tools)
+#         return await agent.ainvoke({"messages": [{"role": "user", "content": "..."}]})
+
+
+if __name__ == "__main__":
+    main()
