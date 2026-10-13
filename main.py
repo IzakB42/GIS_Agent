@@ -40,6 +40,7 @@ def main():
     )
     
     print(result["messages"][-1].text)
+    # -1 gets the very last thing.
 
 
 # from langchain.agents import create_agent
